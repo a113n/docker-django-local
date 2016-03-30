@@ -1,15 +1,10 @@
-FROM jcalazan/base
-MAINTAINER Jonathan Calazan "jonathan@calazan.com"
+FROM 4113n/base
+MAINTAINER Allen Yu "mail@allenyu.info"
 
-ADD rabbitmq-signing-key-public.asc /tmp/rabbitmq-signing-key-public.asc
-RUN apt-key add /tmp/rabbitmq-signing-key-public.asc
-
-RUN echo "deb http://www.rabbitmq.com/debian/ testing main" > /etc/apt/sources.list.d/rabbitmq.list
-RUN apt-get -qq update > /dev/null
-RUN apt-get -qq -y install rabbitmq-server > /dev/null
+RUN apt-get update && apt-get install -qq -y rabbitmq-server
 RUN /usr/sbin/rabbitmq-plugins enable rabbitmq_management
-RUN echo "[{rabbit, [{loopback_users, []}]}]." > /etc/rabbitmq/rabbitmq.config
+RUN rabbitmqctl add_user admin admin
+RUN rabbitmqctl set_user_tags admin administrator
+RUN service rabbitmq-server start
 
 EXPOSE 5672 15672 4369
-
-CMD /usr/sbin/rabbitmq-server
