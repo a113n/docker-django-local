@@ -1,5 +1,5 @@
-FROM jcalazan/base
-MAINTAINER Jonathan Calazan "jonathan@calazan.com"
+FROM 4113n/base
+MAINTAINER Allen Yu "mail@allenyu.info"
 
 RUN locale-gen en_US.UTF-8
 
