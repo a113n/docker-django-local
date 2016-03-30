@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Jonathan Calazan "jonathan@calazan.com"
+MAINTAINER Allen Yu "mail@allenyu.info"
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -8,8 +8,17 @@ RUN apt-get update && apt-get install -y \
     libffi-dev \
     libssl-dev \
     python-dev \
+    python-libxml2 \
     python-pip \
     python-pycurl \
+    python-virtualenv \
     python-software-properties \
     sudo \
-    vim
+    vim-nox \
+    zip \
+    gfortran \
+    libxml2 \
+    libxml2-dev \
+    libmemcached-dev \
+    autotools-dev  \
+    zlib1g-dev \
