@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -qq -y \
     libtiff5-dev \
     libxml2-dev \
     libxslt1-dev \
-    postgresql-client
+    postgresql-client \
     r-base
 
 # Needed by 'pillow' package.
